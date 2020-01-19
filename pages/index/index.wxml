@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="index_page">
+	<view class="selectedDate">
+		选择日期：<input disabled="true" value="{{date}}" placeholder="" bindtap="selectedDate"></input>
+	</view>
+	<view class="selectedRangeDate">
+		选择日期范围：<input disabled="true" value="{{startDate}}" placeholder="" bindtap="selectedRangeDate"></input>-<input disabled="true" value="{{endDate}}" placeholder="" bindtap="selectedRangeDate"></input>
+	</view>
+	<view class="date_picker_box">
+		<block wx:if="{{showSelectDateBox}}">
+			<date-picker range="{{false}}" date="{{date}}" bindonselectdate="handleSelecteDate" />
+			<!-- <date-picker range="{{false}}" date="{{'2020/02/02'}}" bindonselectdate="handleSelecteDate" /> -->
+		</block>
+		<block wx:if="{{showSelectRangeDateBox}}">
+			<!-- <date-picker range="{{true}}" date="{{date}}" bindonselectrangedate="handleSelecteRangeDate" /> -->
+			<date-picker range="{{true}}" startDate="{{startDate}}" endDate="{{endDate}}" bindonselectrangedate="handleSelecteRangeDate" />
+			<!-- 默认值 -->
+			<!-- <date-picker range="{{true}}" startDate="{{'2020/02/02'}}" endDate="{{'2020/02/09'}}" bindonselectrangedate="handleSelecteRangeDate" />  -->
+		</block>
+	</view>
+</view>
